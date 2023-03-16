@@ -34,7 +34,7 @@ app.use(bodyParser.json());
 // });
 
 // Set up the ChatGPT endpoint
-app.post("/joke", async (req, res) => {
+app.post("/joke", cors(), async (req, res) => {
   // Get the prompt from the request
   const prompt = req.body.prompt;
 
