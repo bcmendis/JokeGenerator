@@ -14,7 +14,7 @@ const openai = new OpenAIApi(configuration);
 const app = express();
 app.use(
   cors({
-    origin: "*",
+    origin: true,
   })
 );
 app.use(bodyParser.json());
@@ -25,7 +25,7 @@ app.options("*", function (req, res) {
 });
 
 // Set up the ChatGPT endpoint
-app.post("/joke", cors(), async (req, res) => {
+app.post("/joke", async (req, res) => {
   // Get the prompt from the request
   const prompt = req.body.prompt;
 
