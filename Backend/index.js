@@ -14,11 +14,7 @@ const openai = new OpenAIApi(configuration);
 const app = express();
 app.use(
   cors({
-    allowedHeaders: ["authorization", "Content-Type"], // you can change the headers
-    exposedHeaders: ["authorization"], // you can change the headers
     origin: "*",
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    preflightContinue: false,
   })
 );
 app.use(bodyParser.json());
