@@ -20,35 +20,25 @@ app.use(
 );
 app.use(bodyParser.json());
 
-const handler = (req, res) => {
-  if (req.method === "OPTIONS") {
-    return res.status(200).send("ok");
-  }
+app.options("*", cors());
+// if (req.method === "OPTIONS") {
+//   res.status(200).end();
+//   return;
+// }
+// Set up the ChatGPT endpoint
+app.post("/joke", cors(), async (req, res) => {
+  // Get the prompt from the request
+  const prompt = req.body.prompt;
 
-  // app.options("/*", cors(), async (req, res) => {
-  //   return res.status(200).send("ok");
-  // });
-  // if (req.method === "OPTIONS") {
-  //   res.status(200).end();
-  //   return;
-  // }
-  // Set up the ChatGPT endpoint
-  app.post("/joke", cors(), async (req, res) => {
-    // Get the prompt from the request
-    const prompt = req.body.prompt;
-
-    // Generate a response with ChatGPT
-    const completion = await openai.createCompletion({
-      model: "text-davinci-002",
-      prompt: prompt,
-      max_tokens: 1000,
-    });
-    res.send(completion.data.choices[0].text);
+  // Generate a response with ChatGPT
+  const completion = await openai.createCompletion({
+    model: "text-davinci-002",
+    prompt: prompt,
+    max_tokens: 1000,
   });
-};
+  res.send(completion.data.choices[0].text);
+});
 
-module.exports = cors(handler);
+app.listen(5000);
 
-// app.listen(5000);
-
-// module.exports = app;
+module.exports = app;
