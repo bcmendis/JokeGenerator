@@ -14,13 +14,13 @@ const openai = new OpenAIApi(configuration);
 const app = express();
 app.use(
   cors({
-    origin: true,
+    origin: "https://joke-gpt-bcmendis.vercel.app/",
     optionsSuccessStatus: 200,
   })
 );
-app.use(bodyParser.json());
-
 app.options("/joke", cors());
+
+app.use(bodyParser.json());
 
 // Set up the ChatGPT endpoint
 app.post("/joke", async (req, res) => {
