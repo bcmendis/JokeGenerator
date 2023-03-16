@@ -12,14 +12,14 @@ const openai = new OpenAIApi(configuration);
 
 // Set up the server
 const app = express();
-app.use(cors());
-// app.use(
-//   cors({
-//     origin: "https://joke-gpt-bcmendis.vercel.app/",
-//     optionsSuccessStatus: 200,
-//   })
-// );
-// app.options("/joke", cors());
+// app.use(cors());
+app.use(
+  cors({
+    origin: "https://joke-gpt-bcmendis.vercel.app",
+    optionsSuccessStatus: 200,
+  })
+);
+app.options("/joke", cors());
 
 app.use(bodyParser.json());
 
