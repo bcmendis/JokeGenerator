@@ -10,9 +10,10 @@ const Gpt = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // ${BASE_URL}
     // Send a request to the server with the prompt
     axios
-      .post(`${BASE_URL}/joke`, { prompt })
+      .post(`http://localhost:5000/joke`, { prompt })
       .then((res) => {
         // Update the response state with the server's response
         setResponse(res.data);
