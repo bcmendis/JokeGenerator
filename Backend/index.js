@@ -21,6 +21,9 @@ app.use(
 app.use(bodyParser.json());
 
 app.options("*", cors());
+app.options("*", function (req, res) {
+  res.sendStatus(200);
+});
 // if (req.method === "OPTIONS") {
 //   res.status(200).end();
 //   return;
