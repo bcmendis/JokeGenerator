@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 
-const BASE_URL = "https://localhost:3000/";
+const BASE_URL = "http://localhost:5000";
 
 const Gpt = () => {
   const [prompt, setPrompt] = useState("");
@@ -12,7 +12,7 @@ const Gpt = () => {
 
     // Send a request to the server with the prompt
     axios
-      .post("http://localhost:5000/joke", { prompt })
+      .post(`${BASE_URL}/joke`, { prompt })
       .then((res) => {
         // Update the response state with the server's response
         setResponse(res.data);
