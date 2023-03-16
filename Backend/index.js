@@ -15,7 +15,7 @@ const app = express();
 app.use(
   cors({
     origin: "*",
-    preflightContinue: false,
+    preflightContinue: true,
   })
 );
 app.use(bodyParser.json());
