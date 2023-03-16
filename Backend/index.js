@@ -32,7 +32,7 @@ app.use(bodyParser.json());
 //   }
 //   next();
 // });
-
+app.options("/joke", cors());
 // Set up the ChatGPT endpoint
 app.post("/joke", cors(), async (req, res) => {
   // Get the prompt from the request
