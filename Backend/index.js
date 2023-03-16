@@ -20,7 +20,9 @@ app.use(
 );
 app.use(bodyParser.json());
 
-app.options("/joke", cors());
+app.options("/*", (req, res) => {
+  res.sendStatus(200);
+});
 // Set up the ChatGPT endpoint
 app.post("/joke", cors(), async (req, res) => {
   // Get the prompt from the request
