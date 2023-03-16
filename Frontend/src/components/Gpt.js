@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 
-const BASE_URL = "http://localhost:5000";
+const BASE_URL = "https://joke-gpt-api.vercel.app/";
 
 const Gpt = () => {
   const [prompt, setPrompt] = useState("");
