@@ -12,11 +12,7 @@ const openai = new OpenAIApi(configuration);
 
 // Set up the server
 const app = express();
-app.use(
-  cors({
-    origin: "*",
-  })
-);
+app.use(cors());
 app.use(bodyParser.json());
 
 // app.use((req, res, next) => {
