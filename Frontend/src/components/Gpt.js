@@ -13,7 +13,7 @@ const Gpt = () => {
     // ${BASE_URL}
     // Send a request to the server with the prompt
     axios
-      .post(`http://localhost:5000/joke`, { prompt })
+      .post(`${BASE_URL}/joke`, { prompt })
       .then((res) => {
         // Update the response state with the server's response
         setResponse(res.data);
