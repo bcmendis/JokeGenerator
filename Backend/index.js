@@ -47,7 +47,7 @@ const handler = (req, res) => {
   });
 };
 
-export default cors(handler);
+module.exports = cors(handler);
 
 // app.listen(5000);
 
