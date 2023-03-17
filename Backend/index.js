@@ -13,7 +13,7 @@ const openai = new OpenAIApi(configuration);
 // Set up the server
 const app = express();
 // app.use(cors());
-app.options("*", cors(), (req, res) => {
+app.options("*", (req, res) => {
   return res.sendStatus(200);
 });
 app.use(
