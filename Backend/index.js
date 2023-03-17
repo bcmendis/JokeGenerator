@@ -13,7 +13,8 @@ const openai = new OpenAIApi(configuration);
 // Set up the server
 const app = express();
 app.use(cors());
-app.options("*", cors());
+app.use(bodyParser.json());
+app.options("/joke", cors());
 // app.options("*", (req, res) => {
 //   res.sendStatus(200).end();
 // });
@@ -23,8 +24,6 @@ app.options("*", cors());
 //     optionsSuccessStatus: 200,
 //   })
 // );
-
-app.use(bodyParser.json());
 
 // Set up the ChatGPT endpoint
 app.post("/joke", async (req, res) => {
