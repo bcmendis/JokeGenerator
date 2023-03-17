@@ -13,7 +13,9 @@ const openai = new OpenAIApi(configuration);
 // Set up the server
 const app = express();
 // app.use(cors());
-app.options("*", cors());
+app.options("*", cors(), (req, res) => {
+  return res.sendStatus(200);
+});
 app.use(
   cors({
     origin: "https://joke-gpt-bcmendis.vercel.app",
